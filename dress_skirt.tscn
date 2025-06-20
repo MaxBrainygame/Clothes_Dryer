@@ -1,0 +1,24 @@
+[gd_scene load_steps=3 format=3 uid="uid://dti28hdk1yh3f"]
+
+[ext_resource type="Texture2D" uid="uid://cooirfxnpndpx" path="res://content/assets/dress/skirt.png" id="1_370bw"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_dlu06"]
+size = Vector2(78, 107)
+
+[node name="DressSkirt" type="Area2D" groups=["dresses"]]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(44, 58.5)
+shape = SubResource("RectangleShape2D_dlu06")
+
+[node name="Button" type="Button" parent="."]
+modulate = Color(1, 1, 1, 0)
+offset_left = 4.0
+offset_top = 6.0
+offset_right = 83.0
+offset_bottom = 113.0
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(43.75, 59.5)
+scale = Vector2(0.121517, 0.248837)
+texture = ExtResource("1_370bw")

@@ -1,0 +1,155 @@
+[gd_scene load_steps=16 format=3 uid="uid://cieqwi8fpnfoa"]
+
+[ext_resource type="FontFile" uid="uid://b605i58io8sn3" path="res://content/assets/fonts/Super Jellyfish.ttf" id="1_37p78"]
+[ext_resource type="Script" uid="uid://g0wy8f2eppfk" path="res://hud.gd" id="1_64ctp"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_a2258"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_amv7k"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_1fv7p"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_g10ll"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_gpiub"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_rftc2"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_1xsix"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_4u2vk"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_4q17s"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_61f8s"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_640wx"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_64ctp"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_8sq4i"]
+
+[node name="HUD" type="CanvasLayer"]
+script = ExtResource("1_64ctp")
+
+[node name="ScoreLabel" type="Label" parent="."]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -80.0
+offset_bottom = 124.0
+grow_horizontal = 0
+theme_override_fonts/font = ExtResource("1_37p78")
+theme_override_font_sizes/font_size = 100
+text = "0"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Message" type="Label" parent="."]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -304.0
+offset_right = 304.0
+offset_bottom = 386.0
+grow_horizontal = 2
+theme_override_fonts/font = ExtResource("1_37p78")
+theme_override_font_sizes/font_size = 80
+text = "Clothes Dryer"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="StartButton" type="Button" parent="."]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -280.0
+offset_top = -304.0
+offset_right = 288.0
+offset_bottom = -73.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_fonts/font = ExtResource("1_37p78")
+theme_override_font_sizes/font_size = 80
+theme_override_styles/focus = SubResource("StyleBoxEmpty_a2258")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_amv7k")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_1fv7p")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxEmpty_g10ll")
+theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_gpiub")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxEmpty_rftc2")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_1xsix")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxEmpty_4u2vk")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_4q17s")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_61f8s")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_640wx")
+text = "START	"
+
+[node name="PauseButton" type="Button" parent="."]
+visible = false
+offset_left = 8.0
+offset_top = -16.0
+offset_right = 96.0
+offset_bottom = 108.0
+theme_override_fonts/font = ExtResource("1_37p78")
+theme_override_font_sizes/font_size = 100
+theme_override_styles/focus = SubResource("StyleBoxEmpty_64ctp")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_64ctp")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_64ctp")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxEmpty_64ctp")
+theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_64ctp")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxEmpty_64ctp")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_64ctp")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxEmpty_64ctp")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_64ctp")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_64ctp")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_64ctp")
+text = "I I"
+
+[node name="MessageTimer" type="Timer" parent="."]
+one_shot = true
+
+[node name="PauseBackground" type="ColorRect" parent="."]
+process_mode = 2
+visible = false
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.196078, 0.196078, 0.196078, 0.901961)
+
+[node name="PlayButton" type="Button" parent="."]
+process_mode = 2
+visible = false
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -291.5
+offset_top = -116.0
+offset_right = 291.5
+offset_bottom = 116.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("1_37p78")
+theme_override_font_sizes/font_size = 80
+theme_override_styles/focus = SubResource("StyleBoxEmpty_8sq4i")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_8sq4i")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_8sq4i")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxEmpty_8sq4i")
+theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_8sq4i")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxEmpty_8sq4i")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_8sq4i")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxEmpty_8sq4i")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_8sq4i")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_8sq4i")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_8sq4i")
+text = "Play"
+
+[connection signal="pressed" from="StartButton" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="PauseButton" to="." method="_on_pause_button_pressed"]
+[connection signal="timeout" from="MessageTimer" to="." method="_on_message_timer_timeout"]
+[connection signal="pressed" from="PlayButton" to="." method="_on_play_button_pressed"]

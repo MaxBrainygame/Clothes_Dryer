@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://b8ih00qexf2mr"]
+
+[ext_resource type="Texture2D" uid="uid://dbuui4ryxtfyg" path="res://content/assets/rope/rope.png" id="1_esaku"]
+
+[node name="RopeTest" type="Sprite2D"]
+position = Vector2(360, 548)
+scale = Vector2(0.857143, 1.10595)
+texture = ExtResource("1_esaku")

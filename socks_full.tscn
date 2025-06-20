@@ -1,0 +1,22 @@
+[gd_scene load_steps=3 format=3 uid="uid://1p1pvck0ca4f"]
+
+[ext_resource type="Texture2D" uid="uid://c4wm5ubdfw7c6" path="res://content/assets/socks/socks_full.png" id="1_3qymt"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_po8wy"]
+size = Vector2(51, 56)
+
+[node name="SocksFull" type="RigidBody2D" groups=["socks"]]
+collision_layer = 2
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(51.5, 40)
+shape = SubResource("RectangleShape2D_po8wy")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(51.6743, 39.9238)
+scale = Vector2(0.060156, 0.0734979)
+texture = ExtResource("1_3qymt")
+
+[node name="VisibleOnScreenEnabler2D" type="VisibleOnScreenEnabler2D" parent="."]
+position = Vector2(53, 24)

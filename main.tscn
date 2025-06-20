@@ -1,0 +1,54 @@
+[gd_scene load_steps=8 format=3 uid="uid://doqs4nl2edlpf"]
+
+[ext_resource type="Texture2D" uid="uid://n836cajxdb1q" path="res://content/assets/background/background_press.png" id="1_0xm2m"]
+[ext_resource type="Script" uid="uid://xi5m3uu0ny7" path="res://main.gd" id="1_1bvp3"]
+[ext_resource type="PackedScene" uid="uid://cwpgl874cc2at" path="res://rope.tscn" id="1_ig7tw"]
+[ext_resource type="PackedScene" uid="uid://cieqwi8fpnfoa" path="res://hud.tscn" id="4_1bvp3"]
+[ext_resource type="PackedScene" uid="uid://b8ih00qexf2mr" path="res://rope_test.tscn" id="4_272bh"]
+[ext_resource type="AudioStream" uid="uid://c6e8d44vwl6l3" path="res://content/assets/music/background.mp3" id="5_lquwl"]
+[ext_resource type="AudioStream" uid="uid://b5ug86f3hss2y" path="res://content/assets/music/game_over.mp3" id="6_7mycd"]
+
+[node name="main" type="Node"]
+script = ExtResource("1_1bvp3")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_0xm2m")
+expand_mode = 1
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchor_right = 0.943
+anchor_bottom = 0.898
+offset_right = 0.039978
+offset_bottom = 0.559937
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Rope" parent="Control" instance=ExtResource("1_ig7tw")]
+visible = false
+position = Vector2(-157, 42)
+
+[node name="RopeTest" parent="Control" instance=ExtResource("4_272bh")]
+position = Vector2(340.5, 574.5)
+scale = Vector2(0.808333, 1.16145)
+
+[node name="HUD" parent="." instance=ExtResource("4_1bvp3")]
+
+[node name="BackgroundMusic" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("5_lquwl")
+
+[node name="GameOverMusic" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("6_7mycd")
+
+[connection signal="comleted_clothes" from="Control/Rope" to="." method="_on_rope_comleted_clothes"]
+[connection signal="hit" from="Control/Rope" to="." method="game_over"]
+[connection signal="pause" from="HUD" to="Control/Rope" method="_on_hud_pause"]
+[connection signal="start_game" from="HUD" to="." method="new_game"]

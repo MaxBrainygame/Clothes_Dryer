@@ -1,0 +1,24 @@
+[gd_scene load_steps=3 format=3 uid="uid://xqsndg05nlfw"]
+
+[ext_resource type="Texture2D" uid="uid://whi4xc12h8dl" path="res://content/assets/dress/sleeve_right_dress.png" id="1_o6qxb"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vng6e"]
+size = Vector2(39, 108)
+
+[node name="DressSleeveRight" type="Area2D" groups=["dresses"]]
+
+[node name="Button" type="Button" parent="."]
+modulate = Color(1, 1, 1, 0)
+offset_left = 18.0
+offset_top = -2.0
+offset_right = 56.0
+offset_bottom = 109.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(37.5, 55)
+shape = SubResource("RectangleShape2D_vng6e")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(37.25, 55)
+scale = Vector2(0.184, 0.281)
+texture = ExtResource("1_o6qxb")

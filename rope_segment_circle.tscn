@@ -1,0 +1,54 @@
+[gd_scene load_steps=3 format=3 uid="uid://c1ot7rgy7o2pw"]
+
+[ext_resource type="Texture2D" uid="uid://bovos6fwmdbpt" path="res://content/assets/rope/rope_semicircle_1.png" id="2_exsyd"]
+
+[sub_resource type="GDScript" id="GDScript_wy0n8"]
+script/source = "extends Node2D
+
+@export var point1 : Vector2 = Vector2(0, 0)
+@export_range(1, 1000) var segments : int = 100
+@export var width : int = 10
+@export var color : Color = Color.GREEN
+@export var antialiasing : bool = false
+
+var _point2 : Vector2
+
+# Called when the node enters the scene tree for the first time.
+func _ready() -> void:
+	pass # Replace with function body.
+
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(_delta: float) -> void:
+	var mouse_position = get_viewport().get_mouse_position()
+	if mouse_position != _point2:
+		_point2 = mouse_position
+		queue_redraw()
+
+
+func _on_draw() -> void:
+	# Average points to get center.
+	var center : Vector2 = Vector2((_point2.x + point1.x) / 2,
+								   (_point2.y + point1.y) / 2)
+	# Calculate the rest of the arc parameters.
+	var radius : float = point1.distance_to(_point2) / 2
+	var start_angle : float = (_point2 - point1).angle()
+	var end_angle : float = (point1 - _point2).angle()
+	if end_angle < 0:  # end_angle is likely negative, normalize it.
+		end_angle += TAU
+
+	# Finally, draw the arc.
+	draw_arc(center, radius, start_angle, end_angle, segments, color,
+			 width, antialiasing)
+"
+
+[node name="ropeSegmentCircle" type="Node2D"]
+script = SubResource("GDScript_wy0n8")
+point1 = Vector2(1, 20)
+width = 100
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(369.897, 361.282)
+rotation = 1.5708
+scale = Vector2(0.802, 0.883803)
+texture = ExtResource("2_exsyd")

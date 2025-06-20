@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://bfnl3gc1xpbgd"]
+
+[ext_resource type="Script" uid="uid://cbelw5mgg6qlw" path="res://clothes_common.gd" id="1_gnd6a"]
+
+[node name="ClothesCommon" type="PathFollow2D"]
+rotates = false
+loop = false
+script = ExtResource("1_gnd6a")

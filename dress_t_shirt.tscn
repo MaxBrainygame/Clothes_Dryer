@@ -1,0 +1,24 @@
+[gd_scene load_steps=3 format=3 uid="uid://garlyi2l554e"]
+
+[ext_resource type="Texture2D" uid="uid://bny1sbjolk3v1" path="res://content/assets/dress/t-shirt_dress.png" id="1_migyu"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ty1pu"]
+size = Vector2(47, 104)
+
+[node name="DressBase" type="Area2D" groups=["dresses"]]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(34.5, 58)
+shape = SubResource("RectangleShape2D_ty1pu")
+
+[node name="Button" type="Button" parent="."]
+modulate = Color(1, 1, 1, 0)
+offset_left = 10.0
+offset_top = 6.0
+offset_right = 59.0
+offset_bottom = 111.0
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(34.5, 58.5)
+scale = Vector2(0.124668, 0.258794)
+texture = ExtResource("1_migyu")

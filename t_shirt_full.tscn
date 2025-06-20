@@ -1,0 +1,22 @@
+[gd_scene load_steps=3 format=3 uid="uid://dpir08iqotu1f"]
+
+[ext_resource type="Texture2D" uid="uid://c1j4fjhq3lu4a" path="res://content/assets/t-shirt/t-shirt_full.png" id="1_sb50w"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_78nmy"]
+size = Vector2(108, 134)
+
+[node name="T-ShirtFull" type="RigidBody2D" groups=["t_shirts"]]
+collision_layer = 2
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-5, 67)
+shape = SubResource("RectangleShape2D_78nmy")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(-6.64, 67.564)
+scale = Vector2(0.120391, 0.147336)
+texture = ExtResource("1_sb50w")
+
+[node name="VisibleOnScreenEnabler2D" type="VisibleOnScreenEnabler2D" parent="."]
+position = Vector2(-6, 21)

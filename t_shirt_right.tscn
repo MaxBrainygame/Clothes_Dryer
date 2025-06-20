@@ -1,0 +1,30 @@
+[gd_scene load_steps=4 format=3 uid="uid://bvd08dg7k5jgk"]
+
+[ext_resource type="Texture2D" uid="uid://bs8jskfjtps7a" path="res://content/assets/t-shirt/t-shirt_right.png" id="1_pekrd"]
+[ext_resource type="Texture2D" uid="uid://d33v7s4gop7ck" path="res://content/assets/services/icons8-half-circle-48.png" id="2_ofyub"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ofyub"]
+size = Vector2(48, 115)
+
+[node name="T-ShirtRight" type="Area2D" groups=["t_shirts"]]
+
+[node name="Button" type="Button" parent="."]
+modulate = Color(1, 1, 1, 0)
+offset_left = 5.0
+offset_right = 53.0
+offset_bottom = 116.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(29, 58)
+shape = SubResource("RectangleShape2D_ofyub")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(29, 58)
+scale = Vector2(0.19, 0.156)
+texture = ExtResource("1_pekrd")
+
+[node name="HalfCircle" type="Sprite2D" parent="."]
+position = Vector2(12, 11)
+rotation = 4.97419
+scale = Vector2(0.419, 0.284)
+texture = ExtResource("2_ofyub")

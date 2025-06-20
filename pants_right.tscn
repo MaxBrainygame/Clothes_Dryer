@@ -1,0 +1,22 @@
+[gd_scene load_steps=3 format=3 uid="uid://e5ux740bhelp"]
+
+[ext_resource type="Texture2D" uid="uid://buwm4prpvytpf" path="res://content/assets/pants/pants_right.png" id="1_dtlx6"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vm8ka"]
+size = Vector2(47, 139)
+
+[node name="pants_right" type="Area2D" groups=["pants"]]
+
+[node name="Button" type="Button" parent="."]
+modulate = Color(1, 1, 1, 0)
+offset_right = 59.0
+offset_bottom = 146.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(29.5, 72.5)
+shape = SubResource("RectangleShape2D_vm8ka")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(29, 72)
+scale = Vector2(0.128, 0.156)
+texture = ExtResource("1_dtlx6")
