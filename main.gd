@@ -10,7 +10,7 @@ func _ready() -> void:
 func new_game():
 	score = 0
 	
-	$Control/Rope.get_node("Timer").start()
+	$Rope.get_node("Timer").start()
 	
 	$HUD.update_score(score)
 	$HUD.show_message("Get Ready")
@@ -18,7 +18,7 @@ func new_game():
 
 func game_over() -> void:
 	#$ScoreTimer.stop()
-	$Control/Rope.get_node("Timer").stop()
+	$Rope.get_node("Timer").stop()
 	$HUD.show_game_over()
 	$BackgroundMusic.stop()
 	$GameOverMusic.play()

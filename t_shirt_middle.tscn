@@ -3,16 +3,16 @@
 [ext_resource type="Texture2D" uid="uid://c47lcfoxsugq1" path="res://content/assets/t-shirt/t-shirt_middle.png" id="1_ba6wv"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_i8w3l"]
-size = Vector2(82, 138)
+size = Vector2(90, 140)
 
 [node name="T-ShirtBase" type="Area2D" groups=["t_shirts"]]
 
 [node name="Button" type="Button" parent="."]
 modulate = Color(1, 1, 1, 0)
-offset_left = -13.0
-offset_top = -4.0
-offset_right = 70.0
-offset_bottom = 135.0
+offset_left = 3.0
+offset_top = 2.0
+offset_right = 93.0
+offset_bottom = 142.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(48, 72)
@@ -20,5 +20,5 @@ shape = SubResource("RectangleShape2D_i8w3l")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(48, 72)
-scale = Vector2(0.122599, 0.151707)
+scale = Vector2(0.134933, 0.154015)
 texture = ExtResource("1_ba6wv")

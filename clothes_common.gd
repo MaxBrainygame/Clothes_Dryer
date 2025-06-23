@@ -206,9 +206,9 @@ func connected_t_shirts() -> void:
 	
 	for clothes_element in children_elements:
 		if clothes_element == "T-ShirtLeft":
-			children_elements[clothes_element].position = Vector2(-39, 27)
+			children_elements[clothes_element].position = Vector2(-45, 27)
 		elif clothes_element == "T-ShirtRight":
-			children_elements[clothes_element].position = Vector2(77, 27)
+			children_elements[clothes_element].position = Vector2(82, 27)
 		else:
 			children_elements[clothes_element].position = Vector2(0, 0)
 
@@ -221,11 +221,11 @@ func connected_dresses() -> void:
 			
 	for clothes_element in children_elements:
 		if clothes_element == "DressSleeveLeft":
-			children_elements[clothes_element].position = Vector2(-34, 8)
+			children_elements[clothes_element].position = Vector2(-43, 3.5)
 		elif clothes_element == "DressSleeveRight":
-			children_elements[clothes_element].position = Vector2(40, 8)
+			children_elements[clothes_element].position = Vector2(60, 4)
 		elif clothes_element == "DressSkirt":
-			children_elements[clothes_element].position = Vector2(-9, 94)
+			children_elements[clothes_element].position = Vector2(-12, 101)
 		else:
 			children_elements[clothes_element].position = Vector2(0, 0)
 	

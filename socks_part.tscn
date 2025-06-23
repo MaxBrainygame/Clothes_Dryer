@@ -3,22 +3,21 @@
 [ext_resource type="Texture2D" uid="uid://b72k6u7328hii" path="res://content/assets/socks/socks_part.png" id="1_m3xli"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5ed3k"]
-size = Vector2(38, 58)
+size = Vector2(45, 70.5)
 
 [node name="SocksPart" type="Area2D" groups=["socks"]]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(32, 30)
+position = Vector2(28.5, 35.25)
 shape = SubResource("RectangleShape2D_5ed3k")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(28.5, 35)
+scale = Vector2(0.108959, 0.0917431)
+texture = ExtResource("1_m3xli")
 
 [node name="Button" type="Button" parent="."]
 modulate = Color(1, 1, 1, 0)
-offset_left = 13.0
-offset_top = 1.0
+offset_left = 6.0
 offset_right = 51.0
-offset_bottom = 60.0
-
-[node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(31.9375, 30.1875)
-scale = Vector2(0.0923123, 0.0755242)
-texture = ExtResource("1_m3xli")
+offset_bottom = 71.0

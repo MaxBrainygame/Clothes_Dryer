@@ -3,22 +3,22 @@
 [ext_resource type="Texture2D" uid="uid://whi4xc12h8dl" path="res://content/assets/dress/sleeve_right_dress.png" id="1_o6qxb"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vng6e"]
-size = Vector2(39, 108)
+size = Vector2(45, 115)
 
 [node name="DressSleeveRight" type="Area2D" groups=["dresses"]]
 
 [node name="Button" type="Button" parent="."]
 modulate = Color(1, 1, 1, 0)
-offset_left = 18.0
-offset_top = -2.0
-offset_right = 56.0
-offset_bottom = 109.0
+offset_left = 4.0
+offset_top = 1.0
+offset_right = 50.0
+offset_bottom = 117.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(37.5, 55)
+position = Vector2(27, 59)
 shape = SubResource("RectangleShape2D_vng6e")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(37.25, 55)
-scale = Vector2(0.184, 0.281)
+position = Vector2(27, 59)
+scale = Vector2(0.209, 0.295337)
 texture = ExtResource("1_o6qxb")
