@@ -13,8 +13,8 @@ config_version=5
 config/name="Сlothes_dryer"
 run/main_scene="uid://doqs4nl2edlpf"
 config/features=PackedStringArray("4.4", "GL Compatibility")
-boot_splash/image="uid://cesrq628cg7c3"
-config/icon="uid://cesrq628cg7c3"
+boot_splash/fullsize=false
+boot_splash/image="uid://bx7vbbxocoe5r"
 boot_splash/minimum_display_time=2000
 
 [display]
