@@ -5,7 +5,7 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_po8wy"]
 size = Vector2(90, 80)
 
-[node name="SocksFull" type="RigidBody2D" groups=["socks"]]
+[node name="SocksFull" type="RigidBody2D" groups=["Socks"]]
 collision_layer = 2
 collision_mask = 2
 

@@ -1,0 +1,23 @@
+[gd_scene load_steps=3 format=3 uid="uid://cxd2e10iemm5p"]
+
+[ext_resource type="Texture2D" uid="uid://b72k6u7328hii" path="res://content/assets/socks/socks_part.png" id="1_gnd8u"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_svhil"]
+size = Vector2(45, 70.5)
+
+[node name="SocksRight" type="Area2D" groups=["socks"]]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(28.5, 35.25)
+shape = SubResource("RectangleShape2D_svhil")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(28.5, 35.2153)
+scale = Vector2(0.109, 0.0923073)
+texture = ExtResource("1_gnd8u")
+
+[node name="Button" type="Button" parent="."]
+modulate = Color(1, 1, 1, 0)
+offset_left = 6.0
+offset_right = 51.0
+offset_bottom = 71.0

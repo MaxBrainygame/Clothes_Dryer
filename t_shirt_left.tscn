@@ -6,7 +6,7 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1lrkw"]
 size = Vector2(55, 125)
 
-[node name="T-ShirtLeft" type="Area2D" groups=["t_shirts"]]
+[node name="T_ShirtLeft" type="Area2D" groups=["t_shirt"]]
 
 [node name="Button" type="Button" parent="."]
 modulate = Color(1, 1, 1, 0)

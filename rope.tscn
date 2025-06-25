@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://cwpgl874cc2at"]
+[gd_scene load_steps=10 format=3 uid="uid://cwpgl874cc2at"]
 
 [ext_resource type="Texture2D" uid="uid://dbuui4ryxtfyg" path="res://content/assets/rope/rope.png" id="1_0756u"]
 [ext_resource type="Script" uid="uid://cyk4ywo0lum" path="res://rope.gd" id="1_nmccy"]
@@ -16,6 +16,12 @@ point_count = 34
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_jry5w"]
 size = Vector2(28, 60)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qe201"]
+size = Vector2(95.9978, 108.11)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_id5n5"]
+size = Vector2(4, 1280)
+
 [node name="Rope" type="Node2D"]
 script = ExtResource("1_nmccy")
 clothes_common_scene = ExtResource("4_qe201")
@@ -26,6 +32,7 @@ scale = Vector2(0.82731, 1.106)
 texture = ExtResource("1_0756u")
 
 [node name="Timer" type="Timer" parent="."]
+wait_time = 2.0
 
 [node name="Path2D" type="Path2D" parent="."]
 position = Vector2(8, -1)
@@ -44,5 +51,21 @@ stream = ExtResource("4_id5n5")
 [node name="CompletedMusic" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("5_x76su")
 
+[node name="HelpArea" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HelpArea"]
+position = Vector2(663, 822)
+shape = SubResource("RectangleShape2D_qe201")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+collision_layer = 2
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(718, 640)
+shape = SubResource("RectangleShape2D_id5n5")
+
+[connection signal="comleted_clothes" from="." to="." method="_on_comleted_clothes"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
 [connection signal="area_entered" from="GameOverArea" to="." method="_on_game_over_area_area_entered"]
+[connection signal="area_entered" from="HelpArea" to="." method="_on_help_area_area_entered"]

@@ -13,8 +13,8 @@ config_version=5
 config/name="Сlothes_dryer"
 run/main_scene="uid://doqs4nl2edlpf"
 config/features=PackedStringArray("4.4", "GL Compatibility")
-boot_splash/fullsize=false
 boot_splash/image="uid://bx7vbbxocoe5r"
+config/icon="uid://bx7vbbxocoe5r"
 boot_splash/minimum_display_time=2000
 
 [display]
@@ -22,7 +22,7 @@ boot_splash/minimum_display_time=2000
 window/size/viewport_width=720
 window/size/viewport_height=1280
 window/stretch/mode="canvas_items"
-window/handheld/orientation=6
+window/handheld/orientation=1
 
 [editor]
 
@@ -31,10 +31,10 @@ version_control/autoload_on_startup=true
 
 [global_group]
 
-pants=""
-t_shirts=""
-dresses=""
 socks=""
+pants=""
+dress=""
+t_shirt=""
 
 [input]
 

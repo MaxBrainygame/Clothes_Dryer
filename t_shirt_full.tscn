@@ -5,7 +5,7 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_78nmy"]
 size = Vector2(143, 171)
 
-[node name="T-ShirtFull" type="RigidBody2D" groups=["t_shirts"]]
+[node name="T_ShirtFull" type="RigidBody2D" groups=["t_shirt"]]
 collision_layer = 2
 collision_mask = 2
 

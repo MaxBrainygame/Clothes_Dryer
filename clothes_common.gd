@@ -1,37 +1,18 @@
 extends PathFollow2D
 
-const clothes_scenes = {
-	"pants_left": preload("res://pants_left.tscn"),
-	"pants_right": preload("res://pants_right.tscn"),
-	"T-ShirtLeft": preload("res://t_shirt_left.tscn"),
-	"T-ShirtRight": preload("res://t_shirt_right.tscn"),
-	"T-ShirtBase": preload("res://t_shirt_middle.tscn"),
-	"DressSkirt": preload("res://dress_skirt.tscn"),
-	"DressSleeveRight": preload("res://dress_sleeve_right.tscn"),
-	"DressSleeveLeft": preload("res://dress_sleeve_left.tscn"),
-	"DressBase": preload("res://dress_t_shirt.tscn"),
-	"SocksPart": preload("res://socks_part.tscn")
-}
-
-const clothes_full_scenes = {
-	"pants": preload("res://pants_full.tscn"),
-	"t_shirts": preload("res://t_shirt_full.tscn"),
-	"dresses": preload("res://dress_full.tscn"),
-	"socks": preload("res://socks_full.tscn")
-}
-
 @export var children_elements : Dictionary
 @export var clothes_part : Area2D
 @export var touch_area : Area2D
 
 @onready var rope: Node2D = get_parent().get_parent()
 @onready var connected_music: AudioStreamPlayer2D = rope.get_node("ConnectedMusic")
-@onready var completed_music: AudioStreamPlayer2D = rope.get_node("CompletedMusic")  
-var dragging : bool
-var first_drag : bool
-var touchPos : Vector2
-var of : Vector2
-var oldPosition : Vector2
+@onready var completed_music: AudioStreamPlayer2D = rope.get_node("CompletedMusic") 
+ 
+var dragging: bool
+var first_drag: bool
+var touchPos: Vector2
+var of: Vector2
+var oldPosition: Vector2
 #var oldProgress : float
 
 func _input(event) -> void:	
@@ -42,7 +23,8 @@ func _input(event) -> void:
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	randomize()
-	spawn_clothes()
+	spawn_clothes(rope.help_clothes_part)
+	rope.help_clothes_part = ""
 
 func _on_end_game() -> void:
 	queue_free()
@@ -54,19 +36,20 @@ func _process(_delta: float) -> void:
 		clothes_part.global_position = touchPos
 	
 	if len(children_elements) > 1 or (not dragging and not first_drag):
-		progress += 2
+		progress += rope.speed
 	
 func spawn_clothes(sceneName: String = "") -> void:
-	var clothes_scene_element : Resource
+	var clothes_scene_element: Resource
 	if sceneName.is_empty():
-		clothes_scene_element = clothes_scenes.values().pick_random()
+		clothes_scene_element = rope.clothes_scenes.values().pick_random()
 	else:
-		clothes_scene_element = clothes_scenes[sceneName]
+		clothes_scene_element = rope.clothes_scenes[sceneName]
 	clothes_part = clothes_scene_element.instantiate()
 	#clothes_part.area_entered.connect(_on_area_entered)
 	clothes_part.get_node("Button").gui_input.connect(_on_button_gui_input.bind(clothes_part))
 	add_child(clothes_part)
 	children_elements[clothes_part.name] = clothes_part
+	rope.add_identical_element(clothes_part.name)
 
 func _on_area_entered(area: Area2D) -> void:
 	pass
@@ -102,10 +85,11 @@ func _on_button_gui_input(event: InputEvent, pressed_clothes: Area2D) -> void:
 func check_and_move_parts_clothes() -> void:
 	var overlapping_clothes = clothes_part.get_overlapping_areas()
 	for clothes in clothes_part.get_overlapping_areas():
+		if clothes.name == "HelpArea":
+			continue
 		var group_clothes = clothes.get_groups()[0]
 		
-		if group_clothes == clothes_part.get_groups()[0] and (clothes.name != clothes_part.name 
-			or group_clothes == "socks"):
+		if group_clothes == clothes_part.get_groups()[0] and (clothes.name != clothes_part.name):
 			connect_clothes(clothes, group_clothes)
 		else:
 			resolve_overlap(clothes, clothes_part)
@@ -115,16 +99,18 @@ func connect_clothes(clothes: Area2D, group_clothes: StringName) -> void:
 	if parent_clothes == self:
 		return		
 
-	if group_clothes == "t_shirts" or group_clothes == "dresses":
+	if group_clothes == "t_shirt" or group_clothes == "dress":
 		if not clothes.name.contains("Base") and not clothes_part.name.contains("Base"):
 			return
 		if parent_clothes.children_elements.has(clothes_part.name):
 			return
 	
+	rope.delete_identical_element(clothes_part.name)
 	parent_clothes.spawn_clothes(clothes_part.name)	
 	
 	children_elements.erase(clothes_part.name)
 	if children_elements.is_empty():
+		#rope.delete_identical_element(clothes_part.name)
 		queue_free()
 	else:
 		clothes_part.queue_free()
@@ -176,13 +162,12 @@ func work_after_connect_clothes(group_clothes: StringName) -> void:
 		number_elements_in_group = 2
 	elif group_clothes == "socks":
 		number_elements_in_group = 2
-	elif group_clothes == "t_shirts":
+	elif group_clothes == "t_shirt":
 		connected_t_shirts()
 		number_elements_in_group = 3
-	elif group_clothes == "dresses":
+	elif group_clothes == "dress":
 		connected_dresses()
 		number_elements_in_group = 4
-	
 	
 	if len(children_elements) == number_elements_in_group:
 		rope.comleted_clothes.emit(number_elements_in_group)
@@ -205,9 +190,9 @@ func connected_t_shirts() -> void:
 			return
 	
 	for clothes_element in children_elements:
-		if clothes_element == "T-ShirtLeft":
+		if clothes_element == "T_ShirtLeft":
 			children_elements[clothes_element].position = Vector2(-45, 27)
-		elif clothes_element == "T-ShirtRight":
+		elif clothes_element == "T_ShirtRight":
 			children_elements[clothes_element].position = Vector2(82, 27)
 		else:
 			children_elements[clothes_element].position = Vector2(0, 0)
@@ -231,10 +216,13 @@ func connected_dresses() -> void:
 	
 func spawn_full_clothes(group_clothes: StringName) -> void:
 	var clothes_full: RigidBody2D
-	clothes_full = clothes_full_scenes[group_clothes].instantiate()
+	clothes_full = rope.clothes_full_scenes[group_clothes].instantiate()
 	clothes_full.global_position = clothes_part.global_position
-	clothes_full.get_node("VisibleOnScreenEnabler2D").screen_exited.connect(Callable(rope, "_on_visible_on_screen_enabler_2d_screen_exited").bind(clothes_full))
+	clothes_full.get_node("VisibleOnScreenEnabler2D").screen_exited.connect(Callable(rope,
+		"_on_visible_on_screen_enabler_2d_screen_exited").bind(clothes_full))
 	rope.add_child(clothes_full)
+	for child in children_elements:
+		rope.delete_identical_element(child)
 	queue_free()
 		
 	

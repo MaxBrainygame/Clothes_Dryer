@@ -5,7 +5,7 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ty1pu"]
 size = Vector2(60, 110)
 
-[node name="DressBase" type="Area2D" groups=["dresses"]]
+[node name="DressBase" type="Area2D" groups=["dress"]]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(34.5, 58)

@@ -1,20 +1,20 @@
 [gd_scene load_steps=3 format=3 uid="uid://heagn0bdb5u0"]
 
-[ext_resource type="Texture2D" uid="uid://b72k6u7328hii" path="res://content/assets/socks/socks_part.png" id="1_m3xli"]
+[ext_resource type="Texture2D" uid="uid://b72k6u7328hii" path="res://content/assets/socks/socks_part.png" id="1_prilb"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5ed3k"]
 size = Vector2(45, 70.5)
 
-[node name="SocksPart" type="Area2D" groups=["socks"]]
+[node name="SocksLeft" type="Area2D" groups=["socks"]]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(28.5, 35.25)
 shape = SubResource("RectangleShape2D_5ed3k")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(28.5, 35)
-scale = Vector2(0.108959, 0.0917431)
-texture = ExtResource("1_m3xli")
+position = Vector2(28.5, 35.2397)
+scale = Vector2(0.109, 0.0923716)
+texture = ExtResource("1_prilb")
 
 [node name="Button" type="Button" parent="."]
 modulate = Color(1, 1, 1, 0)
