@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://cwpgl874cc2at"]
+[gd_scene load_steps=9 format=3 uid="uid://cwpgl874cc2at"]
 
 [ext_resource type="Texture2D" uid="uid://dbuui4ryxtfyg" path="res://content/assets/rope/rope.png" id="1_0756u"]
 [ext_resource type="Script" uid="uid://cyk4ywo0lum" path="res://rope.gd" id="1_nmccy"]
@@ -17,10 +17,7 @@ point_count = 34
 size = Vector2(28, 60)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qe201"]
-size = Vector2(95.9978, 108.11)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_id5n5"]
-size = Vector2(4, 1280)
+size = Vector2(71, 82.0551)
 
 [node name="Rope" type="Node2D"]
 script = ExtResource("1_nmccy")
@@ -54,16 +51,8 @@ stream = ExtResource("5_x76su")
 [node name="HelpArea" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HelpArea"]
-position = Vector2(663, 822)
+position = Vector2(602, 739)
 shape = SubResource("RectangleShape2D_qe201")
-
-[node name="StaticBody2D" type="StaticBody2D" parent="."]
-collision_layer = 2
-collision_mask = 2
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
-position = Vector2(718, 640)
-shape = SubResource("RectangleShape2D_id5n5")
 
 [connection signal="comleted_clothes" from="." to="." method="_on_comleted_clothes"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

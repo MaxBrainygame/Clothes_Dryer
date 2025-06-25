@@ -36,6 +36,10 @@ pants=""
 dress=""
 t_shirt=""
 
+[gui]
+
+theme/custom_font="uid://b605i58io8sn3"
+
 [input]
 
 pressed={

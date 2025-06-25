@@ -3,19 +3,19 @@
 [ext_resource type="Texture2D" uid="uid://c4wm5ubdfw7c6" path="res://content/assets/socks/socks_full.png" id="1_3qymt"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_po8wy"]
-size = Vector2(90, 80)
+size = Vector2(90, 101)
 
 [node name="SocksFull" type="RigidBody2D" groups=["Socks"]]
 collision_layer = 2
 collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(51.5, 40)
+position = Vector2(51.5, 50.5)
 shape = SubResource("RectangleShape2D_po8wy")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(51.5, 40)
-scale = Vector2(0.105701, 0.104712)
+position = Vector2(51.5, 50.5)
+scale = Vector2(0.105701, 0.132199)
 texture = ExtResource("1_3qymt")
 
 [node name="VisibleOnScreenEnabler2D" type="VisibleOnScreenEnabler2D" parent="."]

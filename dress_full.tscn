@@ -3,19 +3,19 @@
 [ext_resource type="Texture2D" uid="uid://du4m1mvwfwtic" path="res://content/assets/dress/dress_full.png" id="1_fmo3o"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_g85od"]
-size = Vector2(134, 227)
+size = Vector2(134, 272)
 
 [node name="DressFull" type="RigidBody2D" groups=["dress"]]
 collision_layer = 2
 collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(73, 118.5)
+position = Vector2(73, 141)
 shape = SubResource("RectangleShape2D_g85od")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(73, 118.5)
-scale = Vector2(0.159334, 0.262731)
+position = Vector2(73, 141)
+scale = Vector2(0.159334, 0.314815)
 texture = ExtResource("1_fmo3o")
 
 [node name="VisibleOnScreenEnabler2D" type="VisibleOnScreenEnabler2D" parent="."]

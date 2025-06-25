@@ -7,7 +7,7 @@ extends Node2D
 @export var number_identical_elements_together: int = 1
 @export var identical_elements: Dictionary
 @export var clothes_scenes: Dictionary
-@export var help_clothes_part: String
+@export var help_clothes_part: Array[String]
 
 @export var clothes_full_scenes = {
 	"pants": preload("res://pants_full.tscn"),
@@ -138,5 +138,5 @@ func find_help_clothes_part(clothes_scenes_help: Dictionary, group: StringName, 
 			if clothes_scenes_help.has(clothes.name):
 				clothes_scenes_help.erase(clothes.name)
 				
-		help_clothes_part = "" if clothes_scenes_help.is_empty() else clothes_scenes_help.keys()[0]
-	
+		if not clothes_scenes_help.is_empty():
+			help_clothes_part.append_array(clothes_scenes_help.keys())			

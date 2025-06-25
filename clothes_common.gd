@@ -23,8 +23,11 @@ func _input(event) -> void:
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	randomize()
-	spawn_clothes(rope.help_clothes_part)
-	rope.help_clothes_part = ""
+	if rope.help_clothes_part.size() > 0:
+		spawn_clothes(rope.help_clothes_part[0])
+		rope.help_clothes_part.erase(rope.help_clothes_part[0])
+	else:
+		spawn_clothes()
 
 func _on_end_game() -> void:
 	queue_free()

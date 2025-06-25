@@ -3,7 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://xw6i8jidxeuq" path="res://content/assets/pants/pants_full.png" id="1_6r17q"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8fbim"]
-size = Vector2(130, 200)
+size = Vector2(121.5, 230)
 
 [node name="pants_full" type="RigidBody2D" groups=["pants"]]
 collision_layer = 2
@@ -11,7 +11,7 @@ collision_mask = 2
 gravity_scale = 0.848
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(67, 102)
+position = Vector2(63.25, 115)
 shape = SubResource("RectangleShape2D_8fbim")
 
 [node name="VisibleOnScreenEnabler2D" type="VisibleOnScreenEnabler2D" parent="."]
@@ -19,6 +19,6 @@ position = Vector2(61, 18)
 scale = Vector2(1.8, 0.9)
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(67.0001, 102)
-scale = Vector2(0.190896, 0.212766)
+position = Vector2(62, 115.5)
+scale = Vector2(0.176211, 0.241489)
 texture = ExtResource("1_6r17q")
