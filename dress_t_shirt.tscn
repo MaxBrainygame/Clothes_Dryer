@@ -3,22 +3,20 @@
 [ext_resource type="Texture2D" uid="uid://bny1sbjolk3v1" path="res://content/assets/dress/t-shirt_dress.png" id="1_migyu"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ty1pu"]
-size = Vector2(60, 110)
+size = Vector2(60, 89)
 
 [node name="DressBase" type="Area2D" groups=["dress"]]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(34.5, 58)
+position = Vector2(34.5, 47.5)
 shape = SubResource("RectangleShape2D_ty1pu")
 
 [node name="Button" type="Button" parent="."]
 modulate = Color(1, 1, 1, 0)
-offset_left = 4.0
-offset_top = 3.0
-offset_right = 65.0
-offset_bottom = 113.0
+offset_right = 70.0
+offset_bottom = 99.0
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(34.5, 58)
-scale = Vector2(0.16, 0.276)
+position = Vector2(34.5, 47.538)
+scale = Vector2(0.16, 0.223427)
 texture = ExtResource("1_migyu")

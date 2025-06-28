@@ -24,16 +24,16 @@ script = ExtResource("1_nmccy")
 clothes_common_scene = ExtResource("4_qe201")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(346, 548)
-scale = Vector2(0.82731, 1.106)
+position = Vector2(346, 570.011)
+scale = Vector2(0.82731, 1.06158)
 texture = ExtResource("1_0756u")
 
 [node name="Timer" type="Timer" parent="."]
 wait_time = 2.0
 
 [node name="Path2D" type="Path2D" parent="."]
-position = Vector2(8, -1)
-scale = Vector2(0.800888, 1.75247)
+position = Vector2(8, 48.8551)
+scale = Vector2(0.800888, 1.67081)
 curve = SubResource("Curve2D_id5n5")
 
 [node name="GameOverArea" type="Area2D" parent="."]

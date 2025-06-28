@@ -4,27 +4,27 @@
 [ext_resource type="Texture2D" uid="uid://d33v7s4gop7ck" path="res://content/assets/services/icons8-half-circle-48.png" id="2_ofyub"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ofyub"]
-size = Vector2(55, 125)
+size = Vector2(64.25, 123.5)
 
 [node name="T_ShirtRight" type="Area2D" groups=["t_shirt"]]
 
 [node name="Button" type="Button" parent="."]
 modulate = Color(1, 1, 1, 0)
-offset_left = 1.0
-offset_right = 57.0
-offset_bottom = 126.0
+offset_right = 70.0
+offset_bottom = 135.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(29, 63)
+position = Vector2(34.875, 69)
 shape = SubResource("RectangleShape2D_ofyub")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(29, 63)
+position = Vector2(34, 67)
+rotation = -0.122173
 scale = Vector2(0.223141, 0.16825)
 texture = ExtResource("1_pekrd")
 
 [node name="HalfCircle" type="Sprite2D" parent="."]
-position = Vector2(8, 12)
-rotation = 4.97419
-scale = Vector2(0.419, 0.284)
+position = Vector2(7, 19)
+rotation = 4.85376
+scale = Vector2(0.419, 0.300528)
 texture = ExtResource("2_ofyub")

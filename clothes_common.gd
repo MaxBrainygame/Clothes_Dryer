@@ -54,7 +54,7 @@ func spawn_clothes(sceneName: String = "") -> void:
 	children_elements[clothes_part.name] = clothes_part
 	rope.add_identical_element(clothes_part.name)
 
-func _on_area_entered(area: Area2D) -> void:
+func _on_area_entered(_area: Area2D) -> void:
 	pass
 	#if not rope.dragging:
 		#if touch_area == null:
@@ -86,7 +86,7 @@ func _on_button_gui_input(event: InputEvent, pressed_clothes: Area2D) -> void:
 		#rope.dragging = dragging
 		
 func check_and_move_parts_clothes() -> void:
-	var overlapping_clothes = clothes_part.get_overlapping_areas()
+	#var overlapping_clothes = clothes_part.get_overlapping_areas()
 	for clothes in clothes_part.get_overlapping_areas():
 		if clothes.name == "HelpArea":
 			continue
@@ -180,7 +180,7 @@ func work_after_connect_clothes(group_clothes: StringName) -> void:
 		connected_music.play()
 
 func connected_pants() -> void:	
-	if clothes_part.name == "pants_left":
+	if clothes_part.name == "PantsLeft":
 		clothes_part.position = Vector2(-40, 0)
 	else:
 		clothes_part.position = Vector2(40, 0)
@@ -194,9 +194,9 @@ func connected_t_shirts() -> void:
 	
 	for clothes_element in children_elements:
 		if clothes_element == "T_ShirtLeft":
-			children_elements[clothes_element].position = Vector2(-45, 27)
+			children_elements[clothes_element].position = Vector2(-57, 20)
 		elif clothes_element == "T_ShirtRight":
-			children_elements[clothes_element].position = Vector2(82, 27)
+			children_elements[clothes_element].position = Vector2(89, 20)
 		else:
 			children_elements[clothes_element].position = Vector2(0, 0)
 
@@ -209,11 +209,11 @@ func connected_dresses() -> void:
 			
 	for clothes_element in children_elements:
 		if clothes_element == "DressSleeveLeft":
-			children_elements[clothes_element].position = Vector2(-43, 3.5)
+			children_elements[clothes_element].position = Vector2(-45, 2.5)
 		elif clothes_element == "DressSleeveRight":
-			children_elements[clothes_element].position = Vector2(60, 4)
+			children_elements[clothes_element].position = Vector2(60, -0.5)
 		elif clothes_element == "DressSkirt":
-			children_elements[clothes_element].position = Vector2(-12, 101)
+			children_elements[clothes_element].position = Vector2(-12, 80)
 		else:
 			children_elements[clothes_element].position = Vector2(0, 0)
 	

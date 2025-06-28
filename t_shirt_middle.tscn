@@ -9,16 +9,14 @@ size = Vector2(90, 140)
 
 [node name="Button" type="Button" parent="."]
 modulate = Color(1, 1, 1, 0)
-offset_left = 3.0
-offset_top = 2.0
-offset_right = 93.0
-offset_bottom = 142.0
+offset_right = 100.0
+offset_bottom = 150.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(48, 72)
+position = Vector2(50, 75)
 shape = SubResource("RectangleShape2D_i8w3l")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(48, 72)
+position = Vector2(50, 75)
 scale = Vector2(0.134933, 0.154015)
 texture = ExtResource("1_ba6wv")

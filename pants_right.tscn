@@ -5,20 +5,18 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vm8ka"]
 size = Vector2(60, 150)
 
-[node name="pants_right" type="Area2D" groups=["pants"]]
+[node name="PantsRight" type="Area2D" groups=["pants"]]
 
 [node name="Button" type="Button" parent="."]
 modulate = Color(1, 1, 1, 0)
-offset_left = 1.0
-offset_top = 1.0
-offset_right = 61.0
-offset_bottom = 151.0
+offset_right = 80.0
+offset_bottom = 161.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(31, 76)
+position = Vector2(40, 80)
 shape = SubResource("RectangleShape2D_vm8ka")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(31, 76)
+position = Vector2(40, 80)
 scale = Vector2(0.178571, 0.172811)
 texture = ExtResource("1_dtlx6")

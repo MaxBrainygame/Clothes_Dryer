@@ -25,8 +25,8 @@ signal comleted_clothes
 @onready var points_increase_difficulty = 10
 
 const clothes_scenes_two_part = {
-	"pants_left": preload("res://pants_left.tscn"),
-	"pants_right": preload("res://pants_right.tscn"),
+	"PantsLeft": preload("res://pants_left.tscn"),
+	"PantsRight": preload("res://pants_right.tscn"),
 	"SocksLeft": preload("res://socks_left.tscn"),
 	"SocksRight": preload("res://socks_right.tscn"),
 }
@@ -85,7 +85,7 @@ func set_available_clothes_scenes() -> void:
 func _on_visible_on_screen_enabler_2d_screen_exited(clothes_full: RigidBody2D) -> void:
 	clothes_full.queue_free()
 	
-func _on_game_over_area_area_entered(area: Area2D) -> void:
+func _on_game_over_area_area_entered(_area: Area2D) -> void:
 	var children_path_clothes = path_clothes.get_children()
 	for clothes_path in children_path_clothes:
 		clothes_path.queue_free()
@@ -117,7 +117,7 @@ func after_update_result(score: int) -> void:
 		#if number_identical_elements_together < 3:
 			#number_identical_elements_together += 1
 		oldScore = score
-		points_increase_difficulty * 2
+		points_increase_difficulty *= 2
 
 func _on_help_area_area_entered(area: Area2D) -> void:	
 	var group = area.get_groups()[0]
