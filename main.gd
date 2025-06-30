@@ -28,7 +28,7 @@ func _process(_delta: float) -> void:
 	pass
 
 
-func _on_rope_comleted_clothes(number_clothes_elements: int) -> void:
+func get_updated_score(number_clothes_elements: int) -> int:
 	score += number_clothes_elements
 	$HUD.update_score(score)
-	$Rope.after_update_result(score)
+	return score

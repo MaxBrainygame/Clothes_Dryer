@@ -88,6 +88,7 @@ theme_override_styles/normal = SubResource("StyleBoxEmpty_640wx")
 text = "START	"
 
 [node name="PauseButton" type="Button" parent="."]
+visible = false
 offset_left = 8.0
 offset_top = -16.0
 offset_right = 96.0

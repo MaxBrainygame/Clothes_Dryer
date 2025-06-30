@@ -20,7 +20,7 @@ signal hit
 signal comleted_clothes
 
 @onready var path_clothes = $Path2D
-#@onready var mainRoot: Node = get_tree().root
+@onready var mainRoot: Node = get_parent()
 @onready var oldScore: int = 0
 @onready var points_increase_difficulty = 10
 
@@ -140,3 +140,8 @@ func find_help_clothes_part(clothes_scenes_help: Dictionary, group: StringName, 
 				
 		if not clothes_scenes_help.is_empty():
 			help_clothes_part.append_array(clothes_scenes_help.keys())			
+
+
+func _on_comleted_clothes(number_clothes_elements: int) -> void:
+	var score = mainRoot.get_updated_score(number_clothes_elements)
+	after_update_result(score)
