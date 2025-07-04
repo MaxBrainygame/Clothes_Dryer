@@ -8,6 +8,8 @@ extends Node2D
 @export var identical_elements: Dictionary
 @export var clothes_scenes: Dictionary
 @export var help_clothes_part: Array[String]
+@export var screen_size_current: Vector2i
+@export var screnn_size_settings_width: int
 
 @export var clothes_full_scenes = {
 	"pants": preload("res://pants_full.tscn"),
@@ -20,7 +22,7 @@ signal hit
 signal comleted_clothes
 
 @onready var path_clothes = $Path2D
-@onready var mainRoot: Node = get_parent()
+@onready var mainRoot: Node = get_parent().get_parent()
 @onready var oldScore: int = 0
 @onready var points_increase_difficulty = 10
 
@@ -47,7 +49,9 @@ const clothes_scenes_four_part = {
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	#hide()
-	pass
+	screen_size_current = get_viewport().size
+	screnn_size_settings_width = ProjectSettings.get_setting("display/window/size/viewport_width")
+	
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta: float) -> void:

@@ -13,16 +13,18 @@ config_version=5
 config/name="Сlothes_dryer"
 run/main_scene="uid://doqs4nl2edlpf"
 config/features=PackedStringArray("4.4", "GL Compatibility")
-boot_splash/image="uid://bx7vbbxocoe5r"
-config/icon="uid://bx7vbbxocoe5r"
-boot_splash/minimum_display_time=2000
+boot_splash/image="uid://bbrxiaqclwg4k"
+config/icon="uid://bnf626jfbldoo"
 
 [display]
 
 window/size/viewport_width=720
 window/size/viewport_height=1280
+window/size/window_width_override=836
+window/size/window_height_override=470
 window/stretch/mode="canvas_items"
-window/handheld/orientation=1
+window/stretch/aspect="expand"
+window/handheld/orientation=6
 
 [editor]
 

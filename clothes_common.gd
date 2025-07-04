@@ -220,10 +220,10 @@ func connected_dresses() -> void:
 func spawn_full_clothes(group_clothes: StringName) -> void:
 	var clothes_full: RigidBody2D
 	clothes_full = rope.clothes_full_scenes[group_clothes].instantiate()
-	clothes_full.global_position = clothes_part.global_position
 	clothes_full.get_node("VisibleOnScreenEnabler2D").screen_exited.connect(Callable(rope,
 		"_on_visible_on_screen_enabler_2d_screen_exited").bind(clothes_full))
 	rope.add_child(clothes_full)
+	clothes_full.global_position = clothes_part.global_position
 	for child in children_elements:
 		rope.delete_identical_element(child)
 	queue_free()

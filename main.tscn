@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://doqs4nl2edlpf"]
+[gd_scene load_steps=10 format=3 uid="uid://doqs4nl2edlpf"]
 
 [ext_resource type="Texture2D" uid="uid://n836cajxdb1q" path="res://content/assets/background/background_press.png" id="1_0xm2m"]
 [ext_resource type="Script" uid="uid://xi5m3uu0ny7" path="res://main.gd" id="1_1bvp3"]
@@ -8,10 +8,13 @@
 [ext_resource type="AudioStream" uid="uid://b5ug86f3hss2y" path="res://content/assets/music/game_over.mp3" id="6_7mycd"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7mycd"]
-size = Vector2(4, 1280)
+size = Vector2(10, 1280)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_272bh"]
-size = Vector2(2, 1280)
+size = Vector2(10, 1280)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5vw27"]
+size = Vector2(720, 10)
 
 [node name="main" type="Node"]
 script = ExtResource("1_1bvp3")
@@ -26,20 +29,22 @@ grow_vertical = 2
 texture = ExtResource("1_0xm2m")
 expand_mode = 1
 
-[node name="Rope" parent="." instance=ExtResource("1_ig7tw")]
-position = Vector2(-4, 49)
-
-[node name="Control" type="Control" parent="."]
-visible = false
+[node name="ControlRope" type="Control" parent="."]
 layout_mode = 3
-anchor_right = 0.994
-anchor_bottom = 0.898
-offset_right = 0.320007
-offset_bottom = 0.559937
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
 grow_horizontal = 2
 grow_vertical = 2
-size_flags_horizontal = 3
-size_flags_vertical = 3
+
+[node name="Rope" parent="ControlRope" instance=ExtResource("1_ig7tw")]
+position = Vector2(-332, -614)
 
 [node name="HUD" parent="." instance=ExtResource("4_1bvp3")]
 
@@ -49,23 +54,54 @@ stream = ExtResource("5_lquwl")
 [node name="GameOverMusic" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("6_7mycd")
 
-[node name="RightBorder" type="StaticBody2D" parent="."]
+[node name="ControlRightBorder" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 11
+anchor_left = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 0
+grow_vertical = 2
+
+[node name="RightBorder" type="StaticBody2D" parent="ControlRightBorder"]
 collision_layer = 2
 collision_mask = 2
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="RightBorder"]
-position = Vector2(718, 640)
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ControlRightBorder/RightBorder"]
+position = Vector2(0, 640)
 shape = SubResource("RectangleShape2D_7mycd")
 
-[node name="LeftBorder" type="StaticBody2D" parent="."]
+[node name="ControlLeftBorder" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 9
+anchor_bottom = 1.0
+grow_vertical = 2
+
+[node name="LeftBorder" type="StaticBody2D" parent="ControlLeftBorder"]
 collision_layer = 2
 collision_mask = 2
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="LeftBorder"]
-position = Vector2(1, 640)
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ControlLeftBorder/LeftBorder"]
+position = Vector2(0, 640)
 shape = SubResource("RectangleShape2D_272bh")
 
-[connection signal="comleted_clothes" from="Rope" to="." method="_on_rope_comleted_clothes"]
-[connection signal="hit" from="Rope" to="." method="game_over"]
-[connection signal="pause" from="HUD" to="Rope" method="_on_hud_pause"]
+[node name="ControlUpBorder" type="Control" parent="."]
+visible = false
+layout_mode = 3
+anchors_preset = 10
+anchor_right = 1.0
+grow_horizontal = 2
+size_flags_horizontal = 3
+
+[node name="StaticBody2D" type="StaticBody2D" parent="ControlUpBorder"]
+collision_layer = 2
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ControlUpBorder/StaticBody2D"]
+position = Vector2(360, 0)
+shape = SubResource("RectangleShape2D_5vw27")
+
+[connection signal="comleted_clothes" from="ControlRope/Rope" to="." method="_on_rope_comleted_clothes"]
+[connection signal="hit" from="ControlRope/Rope" to="." method="game_over"]
+[connection signal="pause" from="HUD" to="ControlRope/Rope" method="_on_hud_pause"]
 [connection signal="start_game" from="HUD" to="." method="new_game"]
